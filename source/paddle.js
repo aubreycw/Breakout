@@ -7,7 +7,7 @@
     this.game = game;
     this.pos = [Math.round(Breakout.Game.DIM_X/2), Breakout.Game.DIM_Y - 20];
     this.color = "#99807D";
-    this.width = 100;
+    this.width = 150;
     this.height = 10;
   };
 
