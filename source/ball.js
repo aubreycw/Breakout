@@ -20,8 +20,8 @@
     if ((this.pos[0] + this.radius/2 > Breakout.Game.DIM_X) || (this.pos[0] - this.radius/2 < 0)){
       this.vel[0] = -this.vel[0]
     } 
-    if (this.vel[1] < 1 && this.vel[1] > -1 ){
-      this.vel[1] = -1;
+    if (this.vel[1] < 5 && this.vel[1] > -5 ){
+      this.vel[1] = -5;
     }
 
     if (this.pos[1] + this.radius/2 > Breakout.Game.DIM_Y){
