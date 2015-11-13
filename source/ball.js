@@ -7,7 +7,7 @@
     this.game = game;
     this.pos = [Math.round(Breakout.Game.DIM_X/2), Math.round(Breakout.Game.DIM_Y/2)];
     this.vel = [0, -5];
-    this.color = "#e5ccff";
+    this.color = "#D9CBB6";
     this.radius = 20;
   };
 
@@ -20,6 +20,9 @@
     if ((this.pos[0] + this.radius/2 > Breakout.Game.DIM_X) || (this.pos[0] - this.radius/2 < 0)){
       this.vel[0] = -this.vel[0]
     } 
+    if (this.vel[1] < 1 && this.vel[1] > -1 ){
+      this.vel[1] = -1;
+    }
 
     if (this.pos[1] + this.radius/2 > Breakout.Game.DIM_Y){
       this.game.finish()

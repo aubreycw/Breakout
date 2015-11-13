@@ -13,7 +13,7 @@
     // debugger;
   };
 
-  Game.BG_COLOR = "#660033";
+  Game.BG_COLOR = "#605157";
   Game.FPS = 1;
 
   Game.prototype.step = function() {

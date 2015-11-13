@@ -7,7 +7,7 @@
     this.pos = pos;
     this.height = height;
     this.width = width;
-    this.color = "#ffb3d1"
+    this.color = "#B8A59A"
   };
 
   Block.prototype.draw = function(ctx) {
