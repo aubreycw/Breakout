@@ -6,7 +6,7 @@
   var Ball = Breakout.Ball = function (game) {
     this.game = game;
     this.pos = [Math.round(Breakout.Game.DIM_X/2), Math.round(Breakout.Game.DIM_Y/2)];
-    this.vel = [0, -10];
+    this.vel = [0, -20];
     this.color = "#D9CBB6";
     this.radius = 20;
   };
