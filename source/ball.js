@@ -28,9 +28,13 @@
   }
 
   Ball.prototype.maybeBouncePaddle = function(paddle){
-    
-
-
+    if (this.pos[0] + this.radius/2 > paddle.pos[0] - paddle.width){
+      if (this.pos[0] - this.radius/2 < paddle.pos[0] + paddle.width){
+        if (this.pos[1] + this.radius/2 > paddle.pos[1] - paddle.height){
+          this.vel[1] = -this.vel[1]
+        }
+      }
+    } 
   }
 
   Ball.prototype.maybeBounceBlock = function(){

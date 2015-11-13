@@ -9,6 +9,7 @@
     this.ctx = ctx;
     this.game = game;
     this.timerId = null;
+    game.setView(this);
   };
 
   GameView.prototype.start = function () {
@@ -23,6 +24,10 @@
 
   GameView.prototype.stop = function () {
     clearInterval(this.timerId);
+    this.ctx.clearRect(0, 0, Breakout.Game.DIM_X, Breakout.Game.DIM_Y);
+    this.ctx.fillStyle = "#669900";
+    this.ctx.fillRect(0, 0, Breakout.Game.DIM_X, Breakout.Game.DIM_Y);
+    
   };
 
 })();
