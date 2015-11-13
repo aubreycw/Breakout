@@ -1,11 +1,11 @@
 (function () {
 
-  if (typeof SnakeGame === "undefined") {
-    window.SnakeGame = {};
+  if (typeof Breakout === "undefined") {
+    window.Breakout = {};
   }
 
 
-  var GameView = SnakeGame.GameView = function (game, ctx) {
+  var GameView = Breakout.GameView = function (game, ctx) {
     this.ctx = ctx;
     this.game = game;
     this.timerId = null;
