@@ -31,6 +31,8 @@
   }
 
   Ball.prototype.normaliseVel = function() {
+    var total = 5/Math.sqrt(this.vel[0]*this.vel[0] + this.vel[1]*this.vel[1])
+    this.vel = [this.vel[0]*total, this.vel[1]*total]
   }
 
   Ball.prototype.maybeBouncePaddle = function(paddle){
