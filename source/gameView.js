@@ -27,7 +27,6 @@
     this.ctx.clearRect(0, 0, Breakout.Game.DIM_X, Breakout.Game.DIM_Y);
     this.ctx.fillStyle = "#669900";
     this.ctx.fillRect(0, 0, Breakout.Game.DIM_X, Breakout.Game.DIM_Y);
-    
   };
 
 })();

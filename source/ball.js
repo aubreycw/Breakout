@@ -37,8 +37,24 @@
     } 
   }
 
-  Ball.prototype.maybeBounceBlock = function(){
-
+  Ball.prototype.maybeBounceBlock = function(blocks){
+    var newBlocks = [];
+    var changeVel = false;
+    blocks.forEach(function(block){
+      if (this.pos[0] + this.radius/2 > block.pos[0] - block.width){
+        if (this.pos[0] - this.radius/2 < block.pos[0] + block.width){
+          if (this.pos[1] - this.radius/2 < block.pos[1] + block.height){
+            changeVel = true;
+          } else {
+            newBlocks.push(block);
+          }
+        }
+      }
+    });
+    if (changeVel){
+      this.vel[1] = -this.vel[1] 
+    }
+    this.game.blocks = newBlocks
   }
 
   Ball.prototype.draw = function(ctx) {
