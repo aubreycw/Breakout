@@ -6,7 +6,7 @@
   var Ball = Breakout.Ball = function (game) {
     this.game = game;
     this.pos = [Math.round(Breakout.Game.DIM_X/2), Math.round(Breakout.Game.DIM_Y/2)];
-    this.vel = [0, -5];
+    this.vel = [0, -10];
     this.color = "#D9CBB6";
     this.radius = 20;
   };
@@ -34,7 +34,7 @@
   }
 
   Ball.prototype.normaliseVel = function() {
-    var total = 5/Math.sqrt(this.vel[0]*this.vel[0] + this.vel[1]*this.vel[1])
+    var total = 20/Math.sqrt(this.vel[0]*this.vel[0] + this.vel[1]*this.vel[1])
     this.vel = [this.vel[0]*total, this.vel[1]*total]
   }
 
