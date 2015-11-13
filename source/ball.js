@@ -14,6 +14,7 @@
   Ball.prototype.move = function() {
     this.pos = [this.pos[0] + this.vel[0], this.pos[1] + this.vel[1]]
     this.maybeBouncePaddle(this.game.paddle)
+    // debugger;
     this.maybeBounceBlock(this.game.blocks)
 
     if ((this.pos[0] + this.radius/2 > Breakout.Game.DIM_X) || (this.pos[0] - this.radius/2 < 0)){
@@ -40,20 +41,28 @@
   Ball.prototype.maybeBounceBlock = function(blocks){
     var newBlocks = [];
     var changeVel = false;
+    var ball = this;
+    // debugger;
     blocks.forEach(function(block){
-      if (this.pos[0] + this.radius/2 > block.pos[0] - block.width){
-        if (this.pos[0] - this.radius/2 < block.pos[0] + block.width){
-          if (this.pos[1] - this.radius/2 < block.pos[1] + block.height){
+      if (ball.pos[0] + ball.radius/2 > block.pos[0] - block.width){
+        if (ball.pos[0] - ball.radius/2 < block.pos[0] + block.width){
+          if (ball.pos[1] - ball.radius/2 < block.pos[1] + block.height){
             changeVel = true;
           } else {
             newBlocks.push(block);
           }
+        } else {
+          newBlocks.push(block);
         }
+      } else {
+        newBlocks.push(block);
       }
+      // console.log(block.pos)
     });
     if (changeVel){
       this.vel[1] = -this.vel[1] 
     }
+    // debugger;
     this.game.blocks = newBlocks
   }
 

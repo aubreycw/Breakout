@@ -7,13 +7,17 @@
     this.paddle = new Breakout.Paddle(this);
     this.ball = new Breakout.Ball(this);
     this.blocks = [];
+    this.blockWidth = 40;
+    this.blockHeight = 20;
     this.addBlocks();
+    // debugger;
   };
 
   Game.BG_COLOR = "#660033";
   Game.FPS = 1;
 
   Game.prototype.step = function() {
+    // debugger;
     this.ball.move();
   }
 
@@ -30,7 +34,13 @@
   }
 
   Game.prototype.addBlocks = function(){
-
+    var pos = [this.blockWidth/2,this.blockHeight/2];
+    // debugger;
+    while (pos[0] < (Game.DIM_X - this.blockWidth/2)){
+      this.blocks.push(new Breakout.Block([pos[0], pos[1]], this.blockWidth, this.blockHeight));
+      // console.log(pos)
+      pos[0] = pos[0] + this.blockWidth;
+    }
   }
 
 
@@ -40,7 +50,9 @@
     ctx.fillRect(0, 0, Game.DIM_X, Game.DIM_Y);
     this.paddle.draw(ctx);
     this.ball.draw(ctx);
+    // debugger;
     this.blocks.forEach(function(block) {
+      // debugger;
       block.draw(ctx)
     });
   }
