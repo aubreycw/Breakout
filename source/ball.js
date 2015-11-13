@@ -6,7 +6,7 @@
   var Ball = Breakout.Ball = function (game) {
     this.game = game;
     this.pos = [Math.round(Breakout.Game.DIM_X/2), Math.round(Breakout.Game.DIM_Y/2)];
-    this.vel = [0, -10];
+    this.vel = [0, -5];
     this.color = "#e5ccff";
     this.radius = 20;
   };
@@ -26,6 +26,11 @@
     } else if (this.pos[1] - this.radius/2 < 0){
       this.vel[1] = -this.vel[1]
     }
+
+    this.normaliseVel()
+  }
+
+  Ball.prototype.normaliseVel = function() {
   }
 
   Ball.prototype.maybeBouncePaddle = function(paddle){
@@ -33,6 +38,7 @@
       if (this.pos[0] - this.radius/2 < paddle.pos[0] + paddle.width){
         if (this.pos[1] + this.radius/2 > paddle.pos[1] - paddle.height){
           this.vel[1] = -this.vel[1]
+          this.vel[0] = this.vel[0] + Math.round(10*((this.pos[0] - paddle.pos[0]) / paddle.width))
         }
       }
     } 

@@ -19,6 +19,9 @@
   Game.prototype.step = function() {
     // debugger;
     this.ball.move();
+    if (this.blocks === []){
+      this.view.stop()
+    }
   }
 
   Game.prototype.setView = function(view) {
@@ -36,10 +39,14 @@
   Game.prototype.addBlocks = function(){
     var pos = [this.blockWidth/2,this.blockHeight/2];
     // debugger;
-    while (pos[0] < (Game.DIM_X - this.blockWidth/2)){
-      this.blocks.push(new Breakout.Block([pos[0], pos[1]], this.blockWidth, this.blockHeight));
-      // console.log(pos)
-      pos[0] = pos[0] + this.blockWidth;
+    while (pos[1] < this.blockHeight*4){
+      while (pos[0] < (Game.DIM_X - this.blockWidth/2)){
+        this.blocks.push(new Breakout.Block([pos[0], pos[1]], this.blockWidth, this.blockHeight));
+        // console.log(pos)
+        pos[0] = pos[0] + this.blockWidth;
+      }
+      pos[1] = pos[1] + this.blockHeight;
+      pos[0] = this.blockWidth/2
     }
   }
 
