@@ -8,6 +8,9 @@
 
     
     <canvas></canvas>
+    <script type="application/javascript" src="source/ball.js"></script>
+    <script type="application/javascript" src="source/block.js"></script>
+    <script type="application/javascript" src="source/paddle.js"></script>
     <script type="application/javascript" src="https://code.jquery.com/jquery-2.1.4.js"></script>
     <script type="application/javascript" src="source/game.js"></script>
     <script type="application/javascript" src="source/gameView.js"></script>
@@ -16,8 +19,8 @@
     <script type="application/javascript">
       (function () {
         var canvasEl = document.getElementsByTagName("canvas")[0];
-        Breakout.Game.DIM_X = window.innerWidth
-        Breakout.Game.DIM_Y = window.innerHeight
+        Breakout.Game.DIM_X = Math.min(window.innerWidth, 800)
+        Breakout.Game.DIM_Y = Math.min(window.innerHeight, 600)
         canvasEl.width = Breakout.Game.DIM_X;
         canvasEl.height = Breakout.Game.DIM_Y;
         var ctx = canvasEl.getContext("2d");
@@ -25,10 +28,10 @@
         new Breakout.GameView(game, ctx).start();
 
         $(document).keydown(function(event){
-          if (event.which == 38){
-            game.moveLeft()
-          } else if (event.which == 40){
-            game.moveRight()
+          if (event.which == 37){
+            game.movePaddle([-20,0])
+          } else if (event.which == 39){
+            game.movePaddle([20,0])
           }
         });
 
